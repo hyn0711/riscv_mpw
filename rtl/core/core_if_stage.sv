@@ -33,6 +33,16 @@ module core_if_stage #(
         .pc_curr_o  (pc_curr_o)
     );
 
+    prefetch_buffer #(
+
+    ) pb (
+        .clk_i      (clk_i),
+        .rst_ni     (rst_ni),
+        .in_instr_i (),
+        .branch_i   (branch_taken_i),
+        
+    )
+
     // --------------------------------------------------------
 
     always_ff @(posedge clk_i or negedge rst_ni) begin
