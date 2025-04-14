@@ -104,6 +104,8 @@ module fifo_unit_new #(
     logic push_req;
 
     assign pop_req = pop_req_i && (valid_q[0] || valid_q[1]);
+    
+    //assign push_req = push_req_i && ~valid_q[0] && ~valid_q[1];
 
     assign clear_push_pop = {clear_i, push_req_i, pop_req};
 
@@ -276,6 +278,7 @@ module fifo_unit_new #(
                 2'b11: begin
                     out_instr = {16'b0, fifo_entry_0[15:0]};                 // pc[0]
                     out_pc = fifo_pc_q[0];
+                    //valid_d[0] = '0;
                 end
             endcase
         end else begin

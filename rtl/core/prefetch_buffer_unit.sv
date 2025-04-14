@@ -30,7 +30,7 @@ module prefetch_buffer_unit #(
     logic           pop_req;
     logic           fetch_req;
 
-    assign clear = branch_i | ex_stall_i | dma_stall_i;
+    assign clear = branch_i;
     assign push_req = ~branch_i & ~ex_stall_i & ~dma_stall_i;
     assign pop_req = ~branch_i & ~ex_stall_i & ~dma_stall_i;
 
@@ -72,7 +72,8 @@ module prefetch_buffer_unit #(
     );
 
     logic           pc_write;
-    assign          pc_write = pc_write_i & fetch_req;
+    //assign          pc_write = pc_write_i & fetch_req;
+    assign          pc_write = pc_write_i;
 
     // program counter
     always_ff @(posedge clk_i or negedge rst_ni) begin
