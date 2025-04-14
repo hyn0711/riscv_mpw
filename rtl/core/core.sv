@@ -36,6 +36,12 @@ module core #(
 
 );
 
+    // debug pc for C
+    logic [XLEN-1:0] pc_ex_debug;
+    logic [XLEN-1:0] pc_id_debug;
+    assign pc_ex_debug = ex.pc;
+    assign pc_id_debug = id.pc;
+
     // pipline registers
     pipe_if_id      id;
     pipe_id_ex      ex;
@@ -99,20 +105,32 @@ module core #(
         .pc_write_i     (pc_write),
         .branch_taken_i (branch_taken),
         .pc_branch_i    (pc_branch),
+
         .pc_curr_o      (pc_curr),
-        .pc_instr_o     (pc_instr)
+        .pc_instr_o     (pc_instr),
+        .pc_curr_imem_i (instr_addr_o),
+
+        .ex_stall_i     (ex_stall),         // C extension
+        .dma_stall_i    (dma_stall),          // C extension
+        //.instr_fetch_o  (instr_fetch),           // C extension
+        .instr_i        (instr_imem_fifo),
+        .instr_o        (instr_out_fifo)
+
+        
     );
 
     // Instruction memory
-    logic [XLEN-1:0] instr;
-    assign pc_write = ((!dma_stall) && (!ex_stall)) ? 1'b1 : 1'b0;
+    logic [XLEN-1:0] instr_imem_fifo;
+    logic [XLEN-1:0] instr_out_fifo;
+
+    assign pc_write = ((!dma_stall) && (!ex_stall)) ? 1'b1 : 1'b0;        
 
     // instruction memory interface
     assign instr_addr_o = (branch_taken) ? pc_branch : pc_curr;
-    assign instr = instr_rd_data_i;
+    assign instr_imem_fifo = instr_rd_data_i;
     assign instr_wr_data_o = '0;
     assign instr_size_o = 4'b1111;        // always 32-bit access
-    assign instr_read_o = ((!dma_stall) && (!ex_stall)) ? 1'b1 : 1'b0;
+    assign instr_read_o = ((!dma_stall) && (!ex_stall)) ? 1'b1 : 1'b0;   
     assign instr_write_o = 1'b0;
 
 
@@ -133,7 +151,7 @@ module core #(
                 id <= id;
             end else begin
                 id.pc <= pc_instr;
-                id.instr <= instr;
+                id.instr <= instr_out_fifo;  // C extension  
             end
         end
     end
@@ -145,7 +163,7 @@ module core #(
     ) core_ID (
         .clk_i          (clk_i),
         .rst_ni         (rst_ni),
-        .instr_i        (id.instr),
+        .instr_i        (id.instr),  // C extension  
         .rd_din_i       (rd_din),
         .wb_rd_i        (wb.rd),
         .wb_reg_write_i (wb.reg_write),
