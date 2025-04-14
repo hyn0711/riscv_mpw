@@ -1,0 +1,133 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Mon Apr 14 07:41:26 2025
+[*]
+[dumpfile] "/home/hye/riscv_mpw/sim/asm_sim/sim_build/core_top.fst"
+[dumpfile_mtime] "Mon Apr 14 07:32:56 2025"
+[dumpfile_size] 68437
+[savefile] "/home/hye/riscv_mpw/sim/asm_sim/debug_fifo_413.gtkw"
+[timestart] 3165320
+[size] 1798 952
+[pos] -1 -1
+*-14.099999 3209560 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] core_top.
+[treeopen] core_top.core_0.
+[treeopen] core_top.core_0.core_EX.
+[treeopen] core_top.core_0.core_IF.
+[treeopen] core_top.core_0.core_IF.pb.
+[sst_width] 276
+[signals_width] 314
+[sst_expanded] 1
+[sst_vpaned_height] 280
+@28
+core_top.core_0.core_IF.pb.fifo_if.clk_i
+core_top.core_0.core_IF.pb.fifo_if.rst_ni
+core_top.core_0.core_EX.b_u.branch_taken_o
+@22
+core_top.core_0.core_IF.instr_i[31:0]
+core_top.core_0.core_IF.pc_curr_imem_i[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_2_q[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_1_q[31:0]
+@c00022
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+@28
+(0)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(1)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(2)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(3)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(4)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(5)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(6)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(7)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(8)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(9)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(10)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(11)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(12)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(13)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(14)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(15)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(16)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(17)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(18)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(19)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(20)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(21)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(22)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(23)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(24)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(25)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(26)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(27)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(28)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(29)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(30)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+(31)core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+@1401200
+-group_end
+@22
+core_top.core_0.core_IF.instr_o[31:0]
+core_top.core_0.core_IF.pc_instr_o[31:0]
+core_top.core_0.core_IF.pc_curr_imem_i[31:0]
+core_top.core_0.core_IF.pb.pc_curr_instr[31:0]
+@200
+-if_pc, instr out
+@22
+core_top.core_0.pc_instr[31:0]
+@200
+-fifo_pc
+@23
+core_top.core_0.core_IF.pc_curr_imem_i[31:0]
+@22
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_pc_2_q[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_pc_1_q[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_pc_0_q[31:0]
+core_top.core_0.core_IF.pc_instr_o[31:0]
+core_top.core_0.core_IF.pb.fifo_if.out_pc[31:0]
+core_top.core_0.core_IF.pb.fifo_if.out_instr_o[31:0]
+core_top.core_0.core_IF.pb.fifo_if.out_pc_curr_o[31:0]
+@28
+core_top.core_0.core_IF.pb.fifo_if.pop_req_q
+@200
+-prefetch
+@22
+core_top.core_0.core_IF.pb.fifo_if.out_instr_o[31:0]
+core_top.core_0.core_IF.out_pc_curr_o[31:0]
+core_top.core_0.core_IF.pb.pc_curr_o[31:0]
+core_top.core_0.core_IF.pb.pc_next_i[31:0]
+@28
+core_top.core_0.core_IF.pb.fifo_if.fetch_req_o
+core_top.core_0.core_IF.pc_write_i
+@200
+-if_output
+@22
+core_top.core_0.core_IF.out_pc_curr_o[31:0]
+core_top.core_0.core_IF.pc_instr_o[31:0]
+core_top.core_0.core_IF.pc_curr_o[31:0]
+@200
+-core
+@22
+core_top.core_0.instr_addr_o[31:0]
+core_top.core_0.instr_rd_data_i[31:0]
+core_top.core_0.instr_out_fifo[31:0]
+@200
+-instr_in_id
+@22
+core_top.core_0.core_ID.instr_i[31:0]
+@200
+-pc
+@22
+core_top.core_0.instr_addr_o[31:0]
+core_top.core_0.instr_rd_data_i[31:0]
+core_top.core_0.pc_branch[31:0]
+core_top.core_0.pc_curr[31:0]
+core_top.core_0.pc_instr[31:0]
+core_top.core_0.pc_id_debug[31:0]
+core_top.core_0.pc_ex_debug[31:0]
+@200
+-ex_in_pc_instr
+@22
+core_top.core_0.core_EX.pc_i[31:0]
+core_top.core_0.core_EX.pc_i[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

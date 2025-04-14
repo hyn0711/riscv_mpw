@@ -24,12 +24,17 @@ VERILOG_SOURCES += $(shell pwd)/../../rtl/core/forwarding_unit.sv
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/alu_control_unit.sv
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/alu.sv
 
+VERILOG_SOURCES += $(shell pwd)/../../rtl/core/prefetch_buffer_unit.sv
+VERILOG_SOURCES += $(shell pwd)/../../rtl/core/fifo_unit_new.sv
+
+
+
 #VERILOG_SOURCES += $(shell pwd)/../../rtl/core/divv.v
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/DW_div.v
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/DW_div_pipe.v
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/DW02_mult_3_stage.v
 VERILOG_SOURCES += $(shell pwd)/../../rtl/core/DW02_mult_2_stage.v
-VERILOG_SOURCES += $(shell pwd)/../../rtl/core/multiplier_unit.sv
+VERILOG_SOURCES += $(shell pwd)/../../rtl/core/muldiv_unit.sv
 
 # DMA
 VERILOG_SOURCES += $(shell pwd)/../../rtl/dma/pim_dma.sv

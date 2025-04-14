@@ -1,0 +1,72 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Sat Apr 12 07:45:07 2025
+[*]
+[dumpfile] "/home/hye/riscv_mpw/sim/asm_sim/sim_build/core_top.fst"
+[dumpfile_mtime] "Sat Apr 12 07:34:32 2025"
+[dumpfile_size] 47107
+[savefile] "/home/hye/riscv_mpw/sim/asm_sim/debug_new_fifo.gtkw"
+[timestart] 1747100
+[size] 1723 858
+[pos] -1 -1
+*-13.800000 1814350 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] core_top.
+[treeopen] core_top.core_0.
+[treeopen] core_top.core_0.core_IF.
+[treeopen] core_top.core_0.core_IF.pb.
+[sst_width] 276
+[signals_width] 238
+[sst_expanded] 1
+[sst_vpaned_height] 274
+@28
+core_top.core_0.core_IF.pb.fifo_if.clk_i
+core_top.core_0.core_IF.pb.fifo_if.rst_ni
+@200
+-fifo
+@28
+core_top.core_0.core_IF.pb.fifo_if.clear_i
+core_top.core_0.core_IF.pb.fifo_if.push_req
+core_top.core_0.core_IF.pb.fifo_if.push_req_i
+core_top.core_0.core_IF.pb.fifo_if.pop_req
+@22
+core_top.core_0.core_IF.pb.fifo_if.in_instr_i[31:0]
+@28
+core_top.core_0.core_IF.pb.fifo_if.fetch_req_o
+@200
+-fifo debug
+@28
+core_top.core_0.core_IF.pb.fifo_if.valid_q_0
+core_top.core_0.core_IF.pb.fifo_if.valid_q_1
+core_top.core_0.core_IF.pb.fifo_if.valid_q_2
+core_top.core_0.core_IF.pb.fifo_if.valid_q_3
+core_top.core_0.core_IF.pb.fifo_if.valid_q_4
+core_top.core_0.core_IF.pb.fifo_if.valid_q_5
+@22
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_d[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_0_q[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_1_d[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_1_q[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_2_d[31:0]
+core_top.core_0.core_IF.pb.fifo_if.debug_fifo_entry_2_q[31:0]
+@200
+-buffer
+@28
+core_top.core_0.core_IF.pb.ex_stall_i
+core_top.core_0.core_IF.pb.dma_stall_i
+core_top.core_0.core_IF.pb.branch_i
+core_top.core_0.core_IF.pb.pc_write
+core_top.core_0.core_IF.pb.pc_write_i
+core_top.core_0.core_IF.pb.fetch_req
+@22
+core_top.core_0.core_IF.pb.in_instr_i[31:0]
+@200
+-if stage
+@23
+core_top.core_0.core_IF.instr_o[31:0]
+@28
+core_top.core_0.core_IF.branch_taken_i
+@22
+core_top.core_0.core_IF.instr_i[31:0]
+core_top.core_0.core_IF.pc_instr_o[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

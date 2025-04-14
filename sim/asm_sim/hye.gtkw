@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Wed Apr  9 12:28:08 2025
+[*]
+[dumpfile] "/home/hye/riscv_mpw/sim/asm_sim/sim_build/core_top.fst"
+[dumpfile_mtime] "Wed Apr  9 12:07:19 2025"
+[dumpfile_size] 43088
+[savefile] "/home/hye/riscv_mpw/sim/asm_sim/sim_build/hye.gtkw"
+[timestart] 1665300
+[size] 1505 853
+[pos] -507 -157
+*-14.400000 1727300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] core_top.
+[treeopen] core_top.core_0.
+[treeopen] core_top.core_0.core_EX.
+[treeopen] core_top.core_0.core_IF.
+[treeopen] core_top.core_0.core_IF.pb.
+[sst_width] 276
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 245
+@28
+core_top.core_0.core_IF.pb.fifo_if.clk_i
+core_top.core_0.core_IF.pb.fifo_if.rst_ni
+@22
+core_top.core_0.core_IF.pb.fifo_if.in_instr_i[31:0]
+@200
+-
+@28
+core_top.core_0.core_EX.b_u.branch_taken_o
+core_top.core_0.core_EX.branch_taken_o
+@200
+-
+@28
+core_top.core_0.core_IF.branch_taken_i
+@22
+core_top.core_0.core_IF.instr_i[31:0]
+core_top.core_0.core_IF.pb.in_instr_i[31:0]
+core_top.core_0.core_IF.pb.fifo_if.in_instr_i[31:0]
+core_top.core_0.core_IF.pb.fifo_if.out_instr_o[31:0]
+@200
+-
+@29
+core_top.core_0.core_IF.pb.fifo_if.push_req_i
+@28
+core_top.core_0.core_IF.pb.fifo_if.entry0_valid_o
+core_top.core_0.core_IF.pb.fifo_if.clear_i
+[pattern_trace] 1
+[pattern_trace] 0
