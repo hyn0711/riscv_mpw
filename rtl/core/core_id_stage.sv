@@ -4,6 +4,7 @@ module core_id_stage #(
 ) (
     input                       clk_i,
     input                       rst_ni,
+    input                       is_compressed_i,
     input           [XLEN-1:0]  instr_i,
     input           [XLEN-1:0]  rd_din_i,
     input           [4:0]       wb_rd_i,
@@ -26,14 +27,31 @@ module core_id_stage #(
     output  logic   [XLEN-1:0]  rs2_dout_o
 );
 
+    logic [XLEN-1:0] instr;
+    logic [XLEN-1:0] instr_decompressed;
+
+    assign instr = (is_compressed_i) ? instr_decompressed : instr_i;
+
     // instruction parsing
-    assign opcode_o = instr_i[6:0];
-    assign rd_o = instr_i[11:7];
-    assign funct3_o = instr_i[14:12];
-    assign rs1_o = instr_i[19:15];
-    assign rs2_o = instr_i[24:20];
-    assign funct7_o = instr_i[31:25];
+    assign opcode_o = instr[6:0];
+    assign rd_o = instr[11:7];
+    assign funct3_o = instr[14:12];
+    assign rs1_o = instr[19:15];
+    assign rs2_o = instr[24:20];
+    assign funct7_o = instr[31:25];
     
+    // c extension decoder
+    compressed_decoder c_dec_u (
+        .clk_i(clk_i),
+        .rst_ni(rst_ni),
+
+        .instr_i(instr_i),
+        .instr_o(instr_decompressed),
+
+        .illegal_instr_o()
+    );
+
+
     // Main control unit
     decoder dec_u (
         .opcode_i       (opcode_o),

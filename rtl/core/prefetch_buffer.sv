@@ -1,59 +1,90 @@
 module prefetch_buffer #(
-    parameter
+    parameter           ENTRY = 4,
+    parameter           XLEN = 3,
+    parameter           RESET_PC = 32'h1000_0000
 ) (
     input logic                 clk_i,
     input logic                 rst_ni,
 
-    input logic [31:0]          in_instr_i,
-
-    // input_ control signal
     input logic                 branch_i,
 
-    // fetch signal
-    output logic                instr_fetch_o,      // fetch request signal to IF stage 
-    output logic [31:0]         out_instr_o
+    input logic [XLEN-1:0]      in_addr_i,
+    input logic [XLEN-1:0]      in_instr_i,
+    input logic                 in_nstall_i,
+
+    // output port
+    output logic [XLEN-1:0]     out_addr_o,
+    output logic [XLEN-1:0]     out_instr_o,
+
+    output logic                fetch_nstall_o,
+    output logic                is_compressed_o,
+
+    // program counter
+    input logic                 pc_write_i,
+    input logic [XLEN-1:0]      pc_next_i,
+    output logic [XLEN-1:0]     pc_curr_o
 );
 
 
-// fifo unit 
-logic               clear;          //
+    logic               fetch_ready;
+    logic [XLEN-1:0]    out_addr;
+    logic [XLEN-1:0]    out_instr;
+    logic [XLEN-1:0]    in_addr;
+    logic               in_valid;
 
-logic               push_req;
-logic               pop_req;
+    assign fetch_nstall_o = fetch_ready;
+    assign out_addr_o = out_addr;
+    assign out_instr_o = out_instr;
+   
+    fifo_unit #(
+        .ENTRY (4),
+        .XLEN (32),
+        .RESET_PC(32'h1000_0000)
+    ) if_fifo (
+        .clk_i(clk_i),
+        .rst_ni(rst_ni),
 
-logic               fetch_req;          //
+        .in_addr_i(in_addr),
+        .in_instr_i(in_instr_i),
+
+        .in_nstall_i(in_nstall_i),
+        .in_valid_i(in_valid),
+
+        //.pop_req_i(1'b1),
+        //.push_req_i(1'b1),
+
+        .clear_i(branch_i),
+        .fetch_ready_o(fetch_ready),
+
+        .out_addr_o(out_addr),
+        .out_instr_o(out_instr),
+
+        .is_compressed_o(is_compressed_o)
+    );
+
+    //assign pc_write = pc_write_i && fetch_ready;
 
 
-// clear signal to fifo if branch instruction
-assign clear = branch_i;
 
-// fetch instruction signal to IMEM & push fifo or no need to push
-assign instr_fetch_o = fetch_req;           // send the fetch request signal to fetch stage 
+    // program counter
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni) begin
+            pc_curr_o <= RESET_PC;
+            in_addr <= RESET_PC;
+            in_valid <= '0;
+        end else begin
+            in_addr <= in_addr_i;
+            in_valid <= 1'b1;
+            if (pc_write_i) begin
+                pc_curr_o <= pc_next_i;
+            end else begin
+                pc_curr_o <= pc_curr_o;
+            end
+        end
+    end
 
-// push, pop control signal
-// stall 생기면 push, pop stop...?
 
 
-
-// fifo module 
-fetch_fifo #(
-    .ENTRY ()
-) fifo_if (
-    .clk_i          (clk_i),
-    .rst_ni         (rst_ni),
-
-    .clear_i        (clear),    
-
-    .in_instr_i     (in_instr_i),   
-
-    .push_req_i     (push_req),    
-    .pop_req_i      (pop_req),   
-    
-    .out_instr_o    (out_instr_o), 
-
-    .fetch_req_o    (fetch_req)
-
-);
 
 
 endmodule
